@@ -1,12 +1,20 @@
 ﻿using CTQL_Engine;
 
-Query query = new($"table col1 col3 col4 = 'test' and col5 ~ 'abc' or col5 ~ 'cba' col6 col7 = 'dce'");
-Console.WriteLine(query.getCTQL());
+EngineProxy engine = new EngineProxy();
+engine.log = true;
 
-string[] token = Lexer.tokenize(query);
-Console.WriteLine(String.Join(" ", token));
+Console.WriteLine(engine.CTQL_SQL("table_data col1 col3 col4 = 'test' and col5 ~ 'abc' or col5 ~ 'cba' col6 col7 = 'dce'"));
 
-string[] conditions = Lexer.condtion(query);
-Console.WriteLine(String.Join(" ", conditions));
+Console.WriteLine("========================================================================");
+
+Console.WriteLine(engine.CTQL_SQL("!col4 = 'test' and !col5 ~ 'abc'"));
+
+Console.WriteLine("========================================================================");
+
+Console.WriteLine(engine.CTQL_SQL("table_data !col4 = 'test' and !col5 ~ 'abc'"));
+
+Console.WriteLine("========================================================================");
+
+Console.WriteLine(engine.CTQL_SQL("table_data col1 col2 col3"));
 
 Console.ReadLine();
