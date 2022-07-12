@@ -27,7 +27,7 @@ Col1 in ("name", "a") | Col1 ~ ("name", "a")
     table_data col1 col3 col4 = 'test' and col5 ~ 'abc' or col5 ~ 'cba' col6 col7 = 'dce'
     ```
 - SQL 
-    ```
+    ```sql
     SELECT col1, col3, col4, col5, col6, col7 
     FROM table_data
     WHERE col4 = 'test' AND col5 LIKE 'abc' OR col5 LIKE 'cba' AND col7 = 'dce'
@@ -38,7 +38,7 @@ Col1 in ("name", "a") | Col1 ~ ("name", "a")
     !col4 = 'test' and !col5 ~ 'abc'
     ```
 - SQL 
-    ```
+    ```sql
     SELECT * 
     FROM table 
     WHERE col4 = 'test' AND col5 LIKE 'abc'
@@ -49,7 +49,7 @@ Col1 in ("name", "a") | Col1 ~ ("name", "a")
     table_data !col4 = 'test' and !col5 ~ 'abc'
     ```
 - SQL 
-    ```
+    ```sql
     SELECT * 
     FROM table_data 
     WHERE col4 = 'test' AND col5 LIKE 'abc'
@@ -61,7 +61,7 @@ Col1 in ("name", "a") | Col1 ~ ("name", "a")
     table_data col1 col2 col3
     ```
 - SQL 
-    ```
+    ```sql
     SELECT col1, col2, col3 
     FROM table_data
     ```
